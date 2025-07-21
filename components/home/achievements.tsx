@@ -1,9 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Trophy, Medal, Award, Code, Cpu, Gamepad, Zap, BookOpen } from "lucide-react";
+// REMOVED: Medal, Award, Code, Cpu, Gamepad, Zap, BookOpen because they are not used in 'achievements' array
+// REMOVED: Badge as its usage is commented out in the JSX
+import { Trophy } from "lucide-react"; // Keep Trophy if you plan to use it for achievements, otherwise remove
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+// REMOVED: import { Badge } from "@/components/ui/badge"; because it's not used
 
 interface Achievement {
   icon: React.ReactNode;
@@ -11,6 +13,8 @@ interface Achievement {
   colorClass: string;
 }
 
+// All achievements are commented out, so the array is effectively empty.
+// If you want to completely remove achievements, you can remove this entire array.
 const achievements: Achievement[] = [
 //   {
 //     icon: <Trophy className="h-6 w-6" />,
@@ -75,17 +79,18 @@ export function Achievements() {
             Recognition and milestones from my technical journey
           </p> */}
         </motion.div>
-        
+
         <div className="mt-12 flex flex-wrap gap-4 justify-center">
+          {/* This map function will render nothing as 'achievements' array is empty */}
           {achievements.map((achievement, index) => (
-            <motion.div 
+            <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ 
-                duration: 0.5, 
+              transition={{
+                duration: 0.5,
                 delay: index * 0.1,
-                type: "spring", 
+                type: "spring",
                 stiffness: 100,
                 damping: 15
               }}
@@ -104,7 +109,7 @@ export function Achievements() {
             </motion.div>
           ))}
         </div>
-        
+
         <div className="mt-10 inline-flex flex-wrap justify-center gap-2">
           {/* <Badge variant="secondary" className="text-sm py-1.5 px-3">Technical Leadership</Badge>
           <Badge variant="secondary" className="text-sm py-1.5 px-3">Hackathon Winner</Badge>
