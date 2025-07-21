@@ -36,10 +36,9 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* About Section */}
           <div className="space-y-4">
-            <h3 className="text-lg font-bold">Achyut Katiyar</h3>
+            <h3 className="text-lg font-bold">SasidharPenubhakam</h3>
             <p className="text-sm text-muted-foreground max-w-xs">
-              Full Stack Developer & Machine Learning Enthusiast based in Boston,
-              specialized in creating modern web applications and blockchain solutions.
+              "MERN Stack Developer focused on delivering high-performance, user-centric web experiences. Committed to turning ideas into functional digital products."
             </p>
           </div>
           
@@ -73,7 +72,7 @@ export function Footer() {
               </li>
               <li>
                 <a 
-                  href="/resume.pdf" 
+                  // href="/resume.pdf" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
@@ -109,26 +108,26 @@ export function Footer() {
             </div>
           </div>
           
-          {/* Keyboard Shortcuts */}
+           {/* Keyboard Shortcuts */}
           <div className="space-y-4">
-            <h3 className="text-lg font-bold">Keyboard Shortcuts</h3>
+            {/* <h3 className="text-lg font-bold">Keyboard Shortcuts</h3> */}
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <div className="flex gap-1">
-                  <kbd className="px-2 py-1 bg-muted border rounded text-[10px] font-mono">⌘</kbd>
-                  <kbd className="px-2 py-1 bg-muted border rounded text-[10px] font-mono">K</kbd>
+                  {/* <kbd className="px-2 py-1 bg-muted border rounded text-[10px] font-mono">⌘</kbd>
+                  <kbd className="px-2 py-1 bg-muted border rounded text-[10px] font-mono">K</kbd> */}
                 </div>
-                <span>Search</span>
+                {/* <span>Search</span> */}
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <div className="flex gap-1">
-                  <kbd className="px-2 py-1 bg-muted border rounded text-[10px] font-mono">T</kbd>
+                  {/* <kbd className="px-2 py-1 bg-muted border rounded text-[10px] font-mono">T</kbd> */}
                 </div>
-                <span>Toggle theme</span>
+                {/* <span>Toggle theme</span> */}
               </div>
             </div>
           </div>
-        </div>
+        </div> 
         
         <motion.div 
           initial={{ opacity: 0 }}
@@ -140,12 +139,12 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center text-sm text-muted-foreground">
               <Copyright className="mr-1 h-3.5 w-3.5" />
-              <span>{new Date().getFullYear()} Achyut Katiyar. All rights reserved.</span>
+              <span>{new Date().getFullYear()} SasidharPenubhakam. All rights reserved.</span>
             </div>
             <div className="text-sm text-muted-foreground flex items-center gap-1.5">
-              <span>Built with</span>
+              {/* <span>Built with</span> */}
               <Heart className="h-3.5 w-3.5 fill-primary text-primary" />
-              <span>using Next.js & Tailwind</span>
+              {/* <span>using Next.js & Tailwind</span> */}
             </div>
           </div>
         </motion.div>

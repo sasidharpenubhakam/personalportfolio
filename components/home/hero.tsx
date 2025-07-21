@@ -11,9 +11,9 @@ import { socialLinks } from "@/data/social";
 export function Hero() {
   const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
   const displayedSkills = [
-    "Full Stack Developer",
+    " MERN Full Stack Developer",
     "Web3 Enthusiast",
-    "Machine Learning Practitioner",
+    // "Machine Learning Practitioner",
     "UI/UX Designer"
   ];
 
@@ -70,7 +70,7 @@ export function Hero() {
                 transition={{ duration: 0.5 }}
               >
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                  Hi, I&apos;m Achyut Katiyar
+                  Hi, I&apos;m SASIDHAR
                 </h1>
               </motion.div>
               <motion.div
@@ -102,9 +102,7 @@ export function Hero() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="max-w-[600px] text-muted-foreground md:text-xl"
               >
-                A passionate developer with expertise in Next.js, React, Tailwind CSS,
-                and blockchain technologies. Currently pursuing a Master&apos;s in Computer Science
-                at Northeastern University.
+                "A passionate MERN stack developer with expertise in React, Node.js, Express.js, and MongoDB. Recently completed a comprehensive MERN development course and successfully launched my first freelance e-commerce website, showcasing end-to-end development capabilities."
               </motion.p>
             </div>
             
@@ -121,17 +119,17 @@ export function Hero() {
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
               </Button>
-              <Button variant="outline" size="lg" asChild>
-                <a 
-                  href="/resume.pdf" 
-                  download="Achyut_Katiyar_Resume.pdf" 
-                  target="_blank"                      
-                  rel="noopener noreferrer"
+               <Button variant="outline" size="lg" asChild> 
+                 <a  
+                  // href="/resume.pdf" 
+                  // download="Achyut_Katiyar_Resume.pdf" 
+                  // target="_blank"                      
+                  // rel="noopener noreferrer"
                 >
-                  <Download className="mr-2 h-4 w-4" />
-                  Resume
+                  {/* <Download className="mr-2 h-4 w-4" />
+                  Resume */}
                 </a>
-              </Button>
+              </Button>  
             </motion.div>
             
             {/* Social Links - Added here from navbar */}
@@ -176,8 +174,8 @@ export function Hero() {
           >
             <div className="relative aspect-square w-full max-w-md overflow-hidden rounded-full">
               <Image
-                src="/images/profile.jpg"
-                alt="Achyut Katiyar"
+                src="/images/photo.jpg"
+                alt="sasidhar"
                 fill
                 className="object-cover"
                 priority
