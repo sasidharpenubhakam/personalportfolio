@@ -1,10 +1,11 @@
+// ✅ components/home/featured-projects.tsx
 "use client";
 
 import { motion } from "framer-motion";
 import { ArrowRight, Github, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge"; // ✅ Corrected import
-import Image from "next/image";
+import Image from 'next/image';
+import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
@@ -17,7 +18,7 @@ import { projects } from "@/data/projects";
 import Link from "next/link";
 
 export function FeaturedProjects() {
-  const featuredProjects = projects.filter((project) => project.featured);
+  const featuredProjects = projects.filter(project => project.featured);
 
   return (
     <section id="projects" className="py-12 md:py-24 bg-muted/50">
@@ -36,7 +37,6 @@ export function FeaturedProjects() {
               Check out some of my recent work
             </p>
           </motion.div>
-
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 w-full">
             {featuredProjects.map((project, index) => (
               <motion.div
@@ -70,9 +70,7 @@ export function FeaturedProjects() {
                         </Badge>
                       ))}
                       {project.technologies.length > 4 && (
-                        <Badge variant="outline">
-                          +{project.technologies.length - 4}
-                        </Badge>
+                        <Badge variant="outline">+{project.technologies.length - 4}</Badge>
                       )}
                     </div>
                     <ul className="space-y-2 text-sm text-muted-foreground">
@@ -94,24 +92,14 @@ export function FeaturedProjects() {
                     <div className="flex-1"></div>
                     {project.github && (
                       <Button asChild variant="ghost" size="icon">
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label="GitHub"
-                        >
+                        <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                           <Github className="h-4 w-4" />
                         </a>
                       </Button>
                     )}
                     {project.liveUrl && (
                       <Button asChild variant="ghost" size="icon">
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label="Live Demo"
-                        >
+                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" aria-label="Live Demo">
                           <ExternalLink className="h-4 w-4" />
                         </a>
                       </Button>
@@ -121,7 +109,6 @@ export function FeaturedProjects() {
               </motion.div>
             ))}
           </div>
-
           <Button asChild variant="outline" className="mt-8">
             <Link href="/projects">
               View All Projects
@@ -131,5 +118,30 @@ export function FeaturedProjects() {
         </div>
       </div>
     </section>
+  );
+}
+
+
+// ✅ tech-icon.tsx (ESM default export style)
+
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+
+type Props = {
+  name: string;
+  className?: string;
+};
+
+export default function TechIcon({ name, className }: Props) {
+  const fallbackUrl = `/tech-icons/${name.toLowerCase()}.svg`;
+
+  return (
+    <Image
+      src={fallbackUrl}
+      alt={name}
+      width={40}
+      height={40}
+      className={cn("aspect-square h-10 w-10 object-contain", className)}
+    />
   );
 }
