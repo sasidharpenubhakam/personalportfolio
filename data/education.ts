@@ -15,7 +15,10 @@ export interface Education {
       degree: "B.Tech",
       institution: "National institute of technology andhra pradesh",
       location: "Tadepalligudem (west Godavari",
+      startDate: "November 2022",
+      endDate: "November2026",
       },
+
     // {
     //   id: "srm",
     //   degree: "Bachelor of Science in Computer Science",

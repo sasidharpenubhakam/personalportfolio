@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Github, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Image from 'next/image';
+import Image from 'next/image'; // This import is correct
 import {
   Card,
   CardContent,
@@ -12,7 +12,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
- import { Badge } from "@/components/ui/badge";
+// import { Badge } from "@/components/ui/badge";
 import { projects } from "@/data/projects";
 import Link from "next/link";
 
@@ -50,13 +50,17 @@ export function FeaturedProjects() {
                 <Card className="h-full flex flex-col overflow-hidden border-2 transition-all hover:border-primary">
                   {project.image && (
                     <div className="aspect-video overflow-hidden">
-                      <img
+                      {/* --- MODIFICATION HERE: Changed <img> to <Image /> --- */}
+                      <Image
                         src={project.image}
                         alt={project.title}
                         className="h-full w-full object-cover transition-transform hover:scale-105"
-                        width={600}
-                        height={400}
+                        width={600} // Keep the explicit width you had
+                        height={400} // Keep the explicit height you had
+                        // layout="responsive" // Consider if you want responsive layout behavior (older prop, but still common concept)
+                        // objectFit="cover" // This is often used with layout="fill"
                       />
+                      {/* --- END MODIFICATION --- */}
                     </div>
                   )}
                   <CardHeader>

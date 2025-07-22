@@ -1,10 +1,10 @@
 // data/skills.ts
-export type SkillCategory = 
-  | 'Languages' 
-  | 'Frameworks/Libraries' 
-  | 'ML/Data' 
-  | 'Blockchain/Web3' 
-  | 'Cloud/DevOps' 
+export type SkillCategory =
+  | 'Languages'
+  | 'Frameworks/Libraries'
+  | 'ML/Data'
+  | 'Blockchain/Web3'
+  | 'Cloud/DevOps'
   | 'Concepts';
 
 export interface Skill {
@@ -45,26 +45,30 @@ export const skills: Record<SkillCategory, Skill[]> = {
     { name: 'Flutter flow', category: 'Frameworks/Libraries', logoKey: 'flutter' },
     { name: 'React Native', category: 'Frameworks/Libraries', logoKey: 'react' },
   ],
-  // 'ML/Data': [
-  //   { name: 'TensorFlow', category: 'ML/Data', logoKey: 'tensorflow' },
-  //   { name: 'PyTorch', category: 'ML/Data', logoKey: 'pytorch' },
-  //   { name: 'Supervised Learning', category: 'ML/Data', logoKey: 'python' },
-  //   { name: 'Deep Learning', category: 'ML/Data', logoKey: 'tensorflow' },
-  //   { name: 'Neural Networks', category: 'ML/Data', logoKey: 'python' },
-  //   { name: 'pandas', category: 'ML/Data', logoKey: 'pandas' },
-  //   { name: 'scikit-learn', category: 'ML/Data', logoKey: 'python' },
-  //   { name: 'Data Visualization', category: 'ML/Data', logoKey: 'jupyter' },
-  // ],
-  // 'Blockchain/Web3': [
-  //   { name: 'Web3.js', category: 'Blockchain/Web3', logoKey: 'javascript' },
-  //   { name: 'Ethers.js', category: 'Blockchain/Web3', logoKey: 'ethereum' },
-  //   { name: 'IPFS', category: 'Blockchain/Web3', logoKey: 'ipfs' },
-  //   { name: 'Polygon', category: 'Blockchain/Web3', logoKey: 'polygon' },
-  //   { name: 'Ethereum', category: 'Blockchain/Web3', logoKey: 'ethereum' },
-  //   { name: 'Aptos', category: 'Blockchain/Web3', logoKey: 'aptos' },
-  //   { name: 'Move', category: 'Blockchain/Web3', logoKey: 'aptos' },
-  //   { name: 'Smart Contracts', category: 'Blockchain/Web3', logoKey: 'solidity' },
-  // ],
+  // START OF FIX: Uncommented these sections to satisfy the SkillCategory type
+  'ML/Data': [
+    // You can add your ML/Data skills here, e.g.:
+    // { name: 'TensorFlow', category: 'ML/Data', logoKey: 'tensorflow' },
+    // { name: 'PyTorch', category: 'ML/Data', logoKey: 'pytorch' },
+    // { name: 'Supervised Learning', category: 'ML/Data', logoKey: 'python' },
+    // { name: 'Deep Learning', category: 'ML/Data', logoKey: 'tensorflow' },
+    // { name: 'Neural Networks', category: 'ML/Data', logoKey: 'python' },
+    // { name: 'pandas', category: 'ML/Data', logoKey: 'pandas' },
+    // { name: 'scikit-learn', category: 'ML/Data', logoKey: 'python' },
+    // { name: 'Data Visualization', category: 'ML/Data', logoKey: 'jupyter' },
+  ],
+  'Blockchain/Web3': [
+    // You can add your Blockchain/Web3 skills here, e.g.:
+    // { name: 'Web3.js', category: 'Blockchain/Web3', logoKey: 'javascript' },
+    // { name: 'Ethers.js', category: 'Blockchain/Web3', logoKey: 'ethereum' },
+    // { name: 'IPFS', category: 'Blockchain/Web3', logoKey: 'ipfs' },
+    // { name: 'Polygon', category: 'Blockchain/Web3', logoKey: 'polygon' },
+    // { name: 'Ethereum', category: 'Blockchain/Web3', logoKey: 'ethereum' },
+    // { name: 'Aptos', category: 'Blockchain/Web3', logoKey: 'aptos' },
+    // { name: 'Move', category: 'Blockchain/Web3', logoKey: 'aptos' },
+    // { name: 'Smart Contracts', category: 'Blockchain/Web3', logoKey: 'solidity' },
+  ],
+  // END OF FIX
   'Cloud/DevOps': [
     { name: 'AWS', category: 'Cloud/DevOps', logoKey: 'amazonwebservices' },
     { name: 'GCP', category: 'Cloud/DevOps', logoKey: 'googlecloud' },
