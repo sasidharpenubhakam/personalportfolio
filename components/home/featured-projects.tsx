@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Github, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Image from 'next/image'; // This import is correct
+import { Badge } from "@/components/ui/badge"; // ✅ Corrected import
+import Image from "next/image";
 import {
   Card,
   CardContent,
@@ -12,14 +13,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-// import { Badge } from "@/components/ui/badge";
 import { projects } from "@/data/projects";
 import Link from "next/link";
 
-
 export function FeaturedProjects() {
-
-  const featuredProjects = projects.filter(project => project.featured);
+  const featuredProjects = projects.filter((project) => project.featured);
 
   return (
     <section id="projects" className="py-12 md:py-24 bg-muted/50">
@@ -38,6 +36,7 @@ export function FeaturedProjects() {
               Check out some of my recent work
             </p>
           </motion.div>
+
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 w-full">
             {featuredProjects.map((project, index) => (
               <motion.div
@@ -50,17 +49,13 @@ export function FeaturedProjects() {
                 <Card className="h-full flex flex-col overflow-hidden border-2 transition-all hover:border-primary">
                   {project.image && (
                     <div className="aspect-video overflow-hidden">
-                      {/* --- MODIFICATION HERE: Changed <img> to <Image /> --- */}
                       <Image
                         src={project.image}
                         alt={project.title}
                         className="h-full w-full object-cover transition-transform hover:scale-105"
-                        width={600} // Keep the explicit width you had
-                        height={400} // Keep the explicit height you had
-                        // layout="responsive" // Consider if you want responsive layout behavior (older prop, but still common concept)
-                        // objectFit="cover" // This is often used with layout="fill"
+                        width={600}
+                        height={400}
                       />
-                      {/* --- END MODIFICATION --- */}
                     </div>
                   )}
                   <CardHeader>
@@ -75,7 +70,9 @@ export function FeaturedProjects() {
                         </Badge>
                       ))}
                       {project.technologies.length > 4 && (
-                        <Badge variant="outline">+{project.technologies.length - 4}</Badge>
+                        <Badge variant="outline">
+                          +{project.technologies.length - 4}
+                        </Badge>
                       )}
                     </div>
                     <ul className="space-y-2 text-sm text-muted-foreground">
@@ -97,14 +94,24 @@ export function FeaturedProjects() {
                     <div className="flex-1"></div>
                     {project.github && (
                       <Button asChild variant="ghost" size="icon">
-                        <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="GitHub"
+                        >
                           <Github className="h-4 w-4" />
                         </a>
                       </Button>
                     )}
                     {project.liveUrl && (
                       <Button asChild variant="ghost" size="icon">
-                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" aria-label="Live Demo">
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Live Demo"
+                        >
                           <ExternalLink className="h-4 w-4" />
                         </a>
                       </Button>
@@ -114,6 +121,7 @@ export function FeaturedProjects() {
               </motion.div>
             ))}
           </div>
+
           <Button asChild variant="outline" className="mt-8">
             <Link href="/projects">
               View All Projects
