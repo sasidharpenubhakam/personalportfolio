@@ -122,8 +122,7 @@ export function FeaturedProjects() {
 }
 
 
-// ✅ tech-icon.tsx (ESM default export style)
-
+// ✅ tech-icon.tsx
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
