@@ -5,7 +5,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "sasidhar| Full Stack Developer",
   // description: "Full Stack Developer & Machine Learning Enthusiast with expertise in Next.js, React, and blockchain technologies.",
-  metadataBase: new URL("https://achyutkatiyar.com"),
+  // metadataBase: new URL("https://achyutkatiyar.com"),
   
   // Basic metadata
   applicationName: "sasidhar Portfolio",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     type: "website",
     // url: "https://achyutkatiyar.com",
     title: "sasidhar | Full Stack Developer",
-    description: "Full Stack Developer & Blockchain and Machine Learning Enthusiast with expertise in Next.js, React, and blockchain technologies.",
+    description: "MERN Full Stack Developer ",
     siteName: "sasidhar",
     locale: "en_US",
      images: [

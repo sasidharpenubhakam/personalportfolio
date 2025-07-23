@@ -37,8 +37,8 @@ export default function BlogPage() {
           </h1>
           
           <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed">
-            I&apos;m working on some interesting articles about web development, blockchain technology, 
-            and machine learning. Stay tuned for insightful content!
+            I&apos;m working on some interesting articles about web development,  
+             Stay tuned for insightful content!
           </p>
         </motion.div>
 
