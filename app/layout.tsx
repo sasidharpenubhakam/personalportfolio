@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     locale: "en_US",
      images: [
       {
-        url: "/images/og-image.jpg",
+        url: "/images/photo.png",
         width: 1200,
         height: 630,
         alt: "sasidhar - Portfolio",
