@@ -1,129 +1,133 @@
-// components/projects/project-details.tsx
-import Image from "next/image";
-import { ArrowLeft, Github, ExternalLink } from "lucide-react";
+"use client";
+
 import { motion } from "framer-motion";
+import { ArrowRight, Github, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
+import NextImage from "next/image"; // ✅ renamed to avoid conflict
 import { Badge } from "@/components/ui/badge";
-import { Project } from "@/data/projects";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { projects } from "@/data/projects";
+import Link from "next/link";
 
-interface ProjectDetailsProps {
-  project: Project;
-  onBack: () => void;
-}
+export function FeaturedProjects() {
+  const featuredProjects = projects.filter((project) => project.featured);
 
-export function ProjectDetails({ project, onBack }: ProjectDetailsProps) {
   return (
-    <div className="container px-4 md:px-6 mx-auto">
-      <Button
-        variant="ghost"
-        className="mb-6"
-        onClick={onBack}
-      >
-        <ArrowLeft className="mr-2 h-4 w-4" />
-        Back to Projects
-      </Button>
-
-      <div className="grid gap-6 lg:grid-cols-[2fr_1fr] lg:gap-12">
-        <div>
+    <section id="projects" className="py-12 md:py-24 bg-muted/50">
+      <div className="container px-4 md:px-6 mx-auto">
+        <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">
-              {project.title}
-            </h1>
-
-            {project.image && (
-              <div className="rounded-lg overflow-hidden mb-6 relative">
-                <div className="aspect-video w-full relative">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-                    className="object-cover object-top"
-                    priority
-                  />
-                </div>
-              </div>
-            )}
-
-            <p className="text-xl text-muted-foreground mb-8">
-              {project.description}
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+              Featured Projects
+            </h2>
+            <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              Check out some of my recent work
             </p>
-
-            <div className="prose max-w-none">
-              <h2 className="text-2xl font-bold mb-4">Overview</h2>
-              <p className="mb-6">{project.longDescription || project.description}</p>
-
-              <h2 className="text-2xl font-bold mb-4">Achievements</h2>
-              <ul className="space-y-2 mb-6">
-                {project.achievements.map((achievement, i) => (
-                  <li key={i} className="flex items-start">
-                    <span className="mr-2 font-bold">•</span>
-                    <span>{achievement}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </motion.div>
-        </div>
-
-        <div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-muted rounded-lg p-6 sticky top-24"
-          >
-            <h2 className="text-xl font-bold mb-4">Project Details</h2>
-            <Separator className="my-4" />
-
-            <div className="space-y-4">
-              <div>
-                <h3 className="font-semibold mb-2">Technologies</h3>
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech) => (
-                    <Badge key={tech} variant="secondary">
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-
-              <Separator className="my-4" />
-
-              <div className="flex flex-col gap-2">
-                <h3 className="font-semibold">Links</h3>
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-blue-500 hover:underline"
-                  >
-                    <Github className="mr-2 h-4 w-4" />
-                    GitHub Repository
-                  </a>
-                )}
-                {project.liveUrl && (
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-blue-500 hover:underline"
-                  >
-                    <ExternalLink className="mr-2 h-4 w-4" />
-                    Live Demo
-                  </a>
-                )}
-              </div>
-            </div>
-          </motion.div>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 w-full">
+            {featuredProjects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 * index }}
+              >
+                <Card className="h-full flex flex-col overflow-hidden border-2 transition-all hover:border-primary">
+                  {project.image && (
+                    <div className="aspect-video overflow-hidden">
+                      <NextImage
+                        src={project.image}
+                        alt={project.title}
+                        className="h-full w-full object-cover transition-transform hover:scale-105"
+                        width={600}
+                        height={400}
+                      />
+                    </div>
+                  )}
+                  <CardHeader>
+                    <CardTitle>{project.title}</CardTitle>
+                    <CardDescription>{project.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="flex-1">
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.technologies.slice(0, 4).map((tech) => (
+                        <Badge key={tech} variant="secondary">
+                          {tech}
+                        </Badge>
+                      ))}
+                      {project.technologies.length > 4 && (
+                        <Badge variant="outline">
+                          +{project.technologies.length - 4}
+                        </Badge>
+                      )}
+                    </div>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      {project.achievements.slice(0, 2).map((achievement, i) => (
+                        <li key={i} className="flex items-start">
+                          <ArrowRight className="mr-2 h-4 w-4 text-primary mt-0.5" />
+                          <span>{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                  <CardFooter className="flex gap-2">
+                    <Button asChild variant="default" size="sm">
+                      <Link href={`/projects/${project.id}`}>
+                        View Details
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                    <div className="flex-1" />
+                    {project.github && (
+                      <Button asChild variant="ghost" size="icon">
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="GitHub"
+                        >
+                          <Github className="h-4 w-4" />
+                        </a>
+                      </Button>
+                    )}
+                    {project.liveUrl && (
+                      <Button asChild variant="ghost" size="icon">
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Live Demo"
+                        >
+                          <ExternalLink className="h-4 w-4" />
+                        </a>
+                      </Button>
+                    )}
+                  </CardFooter>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+          <Button asChild variant="outline" className="mt-8">
+            <Link href="/projects">
+              View All Projects
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

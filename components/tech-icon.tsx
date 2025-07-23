@@ -1,15 +1,16 @@
 "use client";
 
-import NextImage from "next/image"; // Renamed import
+import NextImage from "next/image";
 import { cn } from "@/lib/utils";
 
 type Props = {
+  logoKey: string; // ✅ FIXED: Now accepts logoKey
   name: string;
   className?: string;
 };
 
-export default function TechIcon({ name, className }: Props) {
-  const fallbackUrl = `/tech-icons/${name.toLowerCase()}.svg`;
+export default function TechIcon({ logoKey, name, className }: Props) {
+  const fallbackUrl = `/tech-icons/${logoKey.toLowerCase()}.svg`;
 
   return (
     <NextImage
