@@ -1,28 +1,23 @@
 "use client";
 
-import Image from "next/image";
+import NextImage from "next/image"; // Renamed import
+import { cn } from "@/lib/utils";
 
-interface TechIconProps {
-  logoKey: string;
-  alt: string;
+type Props = {
+  name: string;
   className?: string;
-}
+};
 
-export default function TechIcon({ logoKey, alt, className = "" }: TechIconProps) {
-  const fallbackUrl = `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${logoKey}/${logoKey}-plain.svg`;
+export default function TechIcon({ name, className }: Props) {
+  const fallbackUrl = `/tech-icons/${name.toLowerCase()}.svg`;
 
   return (
-    <Image
-      src={`/tech-icons/${logoKey}.svg`}
-      alt={alt}
+    <NextImage
+      src={fallbackUrl}
+      alt={name}
       width={40}
       height={40}
-      className={`h-10 w-10 object-contain ${className}`}
-      onError={(e) => {
-        const target = e.target as HTMLImageElement;
-        target.onerror = null;
-        target.src = fallbackUrl;
-      }}
+      className={cn("aspect-square h-10 w-10 object-contain", className)}
     />
   );
 }

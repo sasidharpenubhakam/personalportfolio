@@ -1,10 +1,9 @@
-// ✅ components/home/featured-projects.tsx
 "use client";
 
 import { motion } from "framer-motion";
 import { ArrowRight, Github, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Image from 'next/image';
+import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -18,7 +17,7 @@ import { projects } from "@/data/projects";
 import Link from "next/link";
 
 export function FeaturedProjects() {
-  const featuredProjects = projects.filter(project => project.featured);
+  const featuredProjects = projects.filter((project) => project.featured);
 
   return (
     <section id="projects" className="py-12 md:py-24 bg-muted/50">
@@ -70,7 +69,9 @@ export function FeaturedProjects() {
                         </Badge>
                       ))}
                       {project.technologies.length > 4 && (
-                        <Badge variant="outline">+{project.technologies.length - 4}</Badge>
+                        <Badge variant="outline">
+                          +{project.technologies.length - 4}
+                        </Badge>
                       )}
                     </div>
                     <ul className="space-y-2 text-sm text-muted-foreground">
@@ -89,17 +90,27 @@ export function FeaturedProjects() {
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Link>
                     </Button>
-                    <div className="flex-1"></div>
+                    <div className="flex-1" />
                     {project.github && (
                       <Button asChild variant="ghost" size="icon">
-                        <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="GitHub"
+                        >
                           <Github className="h-4 w-4" />
                         </a>
                       </Button>
                     )}
                     {project.liveUrl && (
                       <Button asChild variant="ghost" size="icon">
-                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" aria-label="Live Demo">
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Live Demo"
+                        >
                           <ExternalLink className="h-4 w-4" />
                         </a>
                       </Button>
@@ -118,29 +129,5 @@ export function FeaturedProjects() {
         </div>
       </div>
     </section>
-  );
-}
-
-
-// ✅ tech-icon.tsx
-import Image from "next/image";
-import { cn } from "@/lib/utils";
-
-type Props = {
-  name: string;
-  className?: string;
-};
-
-export default function TechIcon({ name, className }: Props) {
-  const fallbackUrl = `/tech-icons/${name.toLowerCase()}.svg`;
-
-  return (
-    <Image
-      src={fallbackUrl}
-      alt={name}
-      width={40}
-      height={40}
-      className={cn("aspect-square h-10 w-10 object-contain", className)}
-    />
   );
 }

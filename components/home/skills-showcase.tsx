@@ -3,10 +3,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { TechIcon } from "@/components/tech-icon";
+import TechIcon from "@/components/tech-icon"; // ✅ Fixed here
 import { Badge } from "@/components/ui/badge";
 import { skills, SkillCategory } from "@/data/skills";
-
 
 export function SkillsShowcase() {
   const [selectedCategory, setSelectedCategory] = useState<SkillCategory>("Languages");
@@ -37,10 +36,12 @@ export function SkillsShowcase() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-8 md:mt-12"
         >
-          <Tabs defaultValue="Languages" 
+          <Tabs
+            defaultValue="Languages"
             value={selectedCategory}
             onValueChange={(value) => setSelectedCategory(value as SkillCategory)}
-            className="w-full">
+            className="w-full"
+          >
             <div className="flex justify-center mb-8">
               <TabsList className="flex flex-wrap gap-2 h-auto">
                 {categories.map((category) => (
@@ -54,7 +55,7 @@ export function SkillsShowcase() {
                 ))}
               </TabsList>
             </div>
-            
+
             {categories.map((category) => (
               <TabsContent key={category} value={category} className="w-full">
                 <div className="bg-muted/50 rounded-lg p-6">
@@ -66,13 +67,17 @@ export function SkillsShowcase() {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.3, delay: index * 0.05 }}
                       >
-                    <Badge 
-                        variant="outline" 
-                        className="text-sm py-2 px-4 bg-background hover:bg-accent transition-colors flex items-center gap-2"
+                        <Badge
+                          variant="outline"
+                          className="text-sm py-2 px-4 bg-background hover:bg-accent transition-colors flex items-center gap-2"
                         >
-                        <TechIcon logoKey={skill.logoKey} name={skill.name} className="h-5 w-5" />
-                        {skill.name}
-                    </Badge>
+                          <TechIcon
+                            logoKey={skill.logoKey}
+                            name={skill.name}
+                            className="h-5 w-5"
+                          />
+                          {skill.name}
+                        </Badge>
                       </motion.div>
                     ))}
                   </div>
