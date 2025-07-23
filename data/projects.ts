@@ -33,8 +33,8 @@ export const projects: Project[] = [
     id: "STCH",
     title: "STCH",
     description : "The project aimed to create a modern, efficient, and user-friendly online storefront to facilitate Browse a diverse clothing collection, secure purchasing, and effective order management for a client. The core need was for a custom solution that offered robust control, extending beyond generic platforms, by enabling comprehensive management over product listings (specifically clothing items), customer interactions, and sales processes. This included advanced product filtering capabilities (e.g., by size, color, type of apparel) for an enhanced user shopping experience and a dedicated admin panel for full control over the store's operations, including inventory and order fulfillment for apparel.",
-    longDescription: "Developed a blockchain-based platform digitizing 300+ Pokémon cards as NFTs, enabling secure trading and battling with on-chain verified ownership and battle logic. Integrated Aptos wallet authentication for seamless trades with real-time feedback.",
-    technologies: ["Move", "Aptos", "NFTs", "React", "TypeScript", "Node.js", "Express", "TailwindCSS", "Three.js", "MongoDB", "Blockchain"],
+    // longDescription: "Developed a blockchain-based platform digitizing 300+ Pokémon cards as NFTs, enabling secure trading and battling with on-chain verified ownership and battle logic. Integrated Aptos wallet authentication for seamless trades with real-time feedback.",
+    technologies: ["Move", "Aptos", "NFTs", "React", "TypeScript", "Node.js", "Express", "TailwindCSS",  "MongoDB", ],
     achievements: [
       // "Developed a blockchain-based platform digitizing 300+ Pokémon cards as NFTs",
       // "Enabled secure trading and battling with on-chain verified ownership and battle logic",

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   
   openGraph: {
     type: "website",
-    url: "https://achyutkatiyar.com",
+    // url: "https://achyutkatiyar.com",
     title: "sasidhar | Full Stack Developer",
     description: "Full Stack Developer & Blockchain and Machine Learning Enthusiast with expertise in Next.js, React, and blockchain technologies.",
     siteName: "sasidhar",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
       { url: "/favicon.ico" },
       { url: "/icon.png", type: "image/png" },
     ],
-    apple: { url: "/apple-touch-icon.png" },
+    apple: { url: "/photo.jpg" },
   },
   
   alternates: {
